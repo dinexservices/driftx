@@ -36,7 +36,7 @@ const WhyColleges: React.FC = () => {
   ];
 
   return (
-    <section ref={sectionRef} id="colleges" className="relative py-32 overflow-hidden bg-black">
+    <section ref={sectionRef} id="colleges" className="relative py-16 md:py-32 overflow-hidden bg-black">
       {/* Dynamic Parallax Background Layer */}
       <div
         className="absolute inset-0 z-0 opacity-20 grayscale scale-110"
@@ -49,7 +49,7 @@ const WhyColleges: React.FC = () => {
       ></div>
       <div className="absolute inset-0 z-10 bg-gradient-to-r from-black via-black/90 to-transparent"></div>
 
-      <div className="relative z-20 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="relative z-20 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
         <div>
           <div className="inline-flex items-center gap-2 text-red-600 font-black tracking-widest text-xs mb-6 uppercase">
             <Trophy size={16} /> Campus Transformation

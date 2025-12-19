@@ -28,9 +28,9 @@ const Experience: React.FC = () => {
   ];
 
   return (
-    <section id="experience" className="py-24 relative overflow-hidden">
+    <section id="experience" className="py-12 md:py-24 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-12 lg:mb-24">
           <div className="relative">
             <div className="absolute -left-4 -top-4 w-24 h-24 border-l-4 border-t-4 border-red-600"></div>
             <h2 className="text-4xl md:text-6xl font-black font-racing italic tracking-tighter mb-8 leading-none">

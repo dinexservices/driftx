@@ -64,7 +64,7 @@ const Gallery: React.FC = () => {
   }, [selectedItem]);
 
   return (
-    <section id="gallery" className="py-24 bg-black relative overflow-hidden">
+    <section id="gallery" className="py-12 md:py-24 bg-black relative overflow-hidden">
       {/* Decorative text background */}
       <div className="absolute top-0 left-0 w-full overflow-hidden opacity-[0.02] pointer-events-none select-none">
         <div className="text-[20vw] font-black font-racing italic whitespace-nowrap leading-none">
@@ -73,7 +73,7 @@ const Gallery: React.FC = () => {
       </div>
 
       <div className="max-w-[1600px] mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-8 md:mb-16 gap-6">
           <div className="max-w-xl">
             <h2 className="text-4xl md:text-6xl font-black font-racing italic tracking-tighter leading-none mb-6">
               VISUAL <span className="text-red-600">VALIDATION</span>
