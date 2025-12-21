@@ -21,7 +21,7 @@ const InquiryForm: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
           {/* WhatsApp */}
           <a 
-            href="https://wa.me/91XXXXXXXXXX" 
+            href="https://wa.me/+919317097380" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="group relative p-8 bg-white/5 border border-white/10 rounded-3xl hover:bg-green-600/10 hover:border-green-600/50 transition-all overflow-hidden flex flex-col items-center text-center"
@@ -38,7 +38,7 @@ const InquiryForm: React.FC = () => {
 
           {/* Email */}
           <a 
-            href="mailto:info@driftx.racing" 
+            href="mailto:office.driftx@gmail.com" 
             className="group relative p-8 bg-white/5 border border-white/10 rounded-3xl hover:bg-red-600/10 hover:border-red-600/50 transition-all overflow-hidden flex flex-col items-center text-center"
           >
             <div className="absolute top-0 right-0 w-24 h-24 bg-red-600/5 blur-2xl group-hover:bg-red-600/20 transition-all"></div>
@@ -47,13 +47,13 @@ const InquiryForm: React.FC = () => {
             </div>
             <div className="text-[10px] font-black tracking-[0.3em] text-red-600 mb-2 uppercase">Direct Mail</div>
             <div className="font-racing font-black text-xl italic text-white mb-2">EMAIL US</div>
-            <div className="text-gray-500 text-sm font-bold">INFO@DRIFTX.RACING</div>
+            <div className="text-gray-500 text-sm font-bold">office.driftx@gmail.com</div>
             <ChevronRight className="mt-4 text-red-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
           </a>
 
           {/* Call */}
           <a 
-            href="tel:+91XXXXXXXXXX" 
+            href="tel:+919317097380" 
             className="group relative p-8 bg-white/5 border border-white/10 rounded-3xl hover:bg-blue-600/10 hover:border-blue-600/50 transition-all overflow-hidden flex flex-col items-center text-center"
           >
             <div className="absolute top-0 right-0 w-24 h-24 bg-blue-600/5 blur-2xl group-hover:bg-blue-600/20 transition-all"></div>
@@ -62,7 +62,7 @@ const InquiryForm: React.FC = () => {
             </div>
             <div className="text-[10px] font-black tracking-[0.3em] text-blue-400 mb-2 uppercase">Voice Line</div>
             <div className="font-racing font-black text-xl italic text-white mb-2">CALL TEAM</div>
-            <div className="text-gray-500 text-sm font-bold">+91-9XXX-XXXXXX</div>
+            <div className="text-gray-500 text-sm font-bold">+91-9317097380</div>
             <ChevronRight className="mt-4 text-blue-400 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
           </a>
 
@@ -78,7 +78,7 @@ const InquiryForm: React.FC = () => {
           </div>
         </div>
 
-        <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8">
+        {/* <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8">
           <button className="flex items-center gap-6 p-6 bg-gradient-to-r from-red-600/20 to-transparent border border-red-600/30 rounded-2xl hover:bg-red-600/30 transition-all group text-left">
             <div className="w-14 h-14 bg-red-600 rounded-xl flex items-center justify-center text-white shadow-[0_0_20px_rgba(220,38,38,0.5)] group-hover:scale-110 transition-transform">
               <Download size={24} />
@@ -98,7 +98,7 @@ const InquiryForm: React.FC = () => {
               <span className="text-lg font-racing font-black italic text-white group-hover:text-red-600 transition-colors">BRAND_SPONSOR_DECK.PDF</span>
             </div>
           </button>
-        </div>
+        </div> */}
 
         <div className="mt-20 flex flex-col items-center">
           <div className="px-8 py-4 bg-red-600/10 border border-red-600/20 rounded-full flex items-center gap-3">

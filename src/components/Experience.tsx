@@ -59,7 +59,7 @@ const Experience: React.FC = () => {
               intensity={25}
             />
             <div className="absolute -bottom-6 -right-6 z-20 bg-red-600 p-8 rounded-2xl shadow-2xl hidden md:block pointer-events-none transform translate-z-50">
-              <p className="font-racing font-black italic text-3xl leading-none">EST. 2024</p>
+              <p className="font-racing font-black italic text-3xl leading-none">EST. 2025</p>
               <p className="text-[10px] font-black tracking-widest mt-2 uppercase">Kaizel Industries</p>
             </div>
           </div>

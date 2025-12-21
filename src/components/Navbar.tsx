@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Menu, X, ChevronRight } from 'lucide-react';
-
+import logo from '../../public/logo.png';
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,19 +33,16 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav 
-      className={`fixed w-full left-0 top-0 z-[1000] transition-all duration-500 ${
-        isScrolled || isOpen 
-          ? 'bg-black/90 backdrop-blur-lg py-4 border-b border-white/10' 
+    <nav
+      className={`fixed w-full left-0 top-0 z-[1000] transition-all duration-500 ${isScrolled || isOpen
+          ? 'bg-black/90 backdrop-blur-lg py-4 border-b border-white/10'
           : 'bg-transparent py-6'
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2 relative z-[1001]">
-          <span className="text-2xl md:text-3xl font-black italic tracking-tighter text-white">
-            DRIFT<span className="text-red-600">X</span>
-          </span>
+          <Image src={logo} alt="Logo" width={150} height={150} />
         </a>
 
         {/* Desktop Menu */}

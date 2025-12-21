@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronDown, Zap } from 'lucide-react';
+import {  Zap } from 'lucide-react';
 import gocart from "@/assets/gocart.jpg"
 import Image from 'next/image';
 
@@ -83,10 +83,7 @@ const Hero: React.FC = () => {
         </div>
 
         <div className="relative z-30 container mx-auto px-6 text-center">
-          <div className="inline-flex items-center gap-2 bg-red-600/20 border border-red-600/50 text-red-500 px-4 py-1 rounded-full text-xs font-bold tracking-[0.2em] mb-6 animate-pulse">
-            <Zap size={14} fill="currentColor" />
-            ENGINE START
-          </div>
+        
 
           <div className="min-h-[160px] md:min-h-[280px] flex items-center justify-center">
             <h1 className="text-4xl md:text-7xl lg:text-8xl font-black font-racing italic leading-tight tracking-tighter mb-4 text-glow">
@@ -123,8 +120,10 @@ const Hero: React.FC = () => {
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2 opacity-50 animate-bounce">
-          <span className="text-[10px] tracking-[0.3em] font-bold">START YOUR ENGINE</span>
-          <ChevronDown size={24} className="text-red-600" />
+          <div className="w-8 h-8 rounded-full border-4 border-gray-800 flex items-center justify-center animate-spin">
+            <div className="w-1 h-2 bg-red-600 rounded-sm"></div>
+          </div>
+
         </div>
       </div>
     </section>

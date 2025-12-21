@@ -71,10 +71,10 @@ const WhyColleges: React.FC = () => {
             ))}
           </div>
 
-          <button className="group flex items-center gap-4 bg-red-600 hover:bg-red-700 text-white px-8 py-5 rounded-sm font-black font-racing italic tracking-widest text-lg transition-all shadow-[0_0_20px_rgba(220,38,38,0.3)]">
+          <a href="/DriftX_PITCH_DECK.pdf" download="DriftX_Pitch_Deck.pdf" className="group flex items-center gap-4 bg-red-600 hover:bg-red-700 text-white px-8 py-5 rounded-sm font-black font-racing italic tracking-widest text-lg transition-all shadow-[0_0_20px_rgba(220,38,38,0.3)]">
             DOWNLOAD COLLEGE PROPOSAL
             <Download size={20} className="group-hover:translate-y-1 transition-transform" />
-          </button>
+          </a>
         </div>
 
         <div className="hidden lg:block relative">

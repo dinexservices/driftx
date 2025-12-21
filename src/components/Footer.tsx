@@ -28,14 +28,14 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="text-center md:text-right">
-            <p className="text-sm font-bold mb-2">info@driftx.racing</p>
-            <p className="text-sm font-bold text-gray-500">+1 (800) DRIFT-X</p>
+            <p className="text-sm font-bold mb-2">office.driftx@gmail.com</p>
+            <p className="text-sm font-bold text-gray-500">+91 9317097380</p>
           </div>
         </div>
 
         <div className="text-center pt-8 border-t border-white/5">
           <p className="text-[10px] tracking-[0.2em] font-black text-gray-700 uppercase">
-            &copy; 2024 DRIFTX EXPERIENCE LTD. ALL RIGHTS RESERVED.
+            &copy; 2025 DRIFTX EXPERIENCE LTD. ALL RIGHTS RESERVED.
             <span className="mx-4">PRIVACY POLICY</span>
             <span>TERMS OF SERVICE</span>
           </p>
