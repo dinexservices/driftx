@@ -76,13 +76,13 @@ const Gallery: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-end mb-8 md:mb-16 gap-6">
           <div className="max-w-xl">
             <h2 className="text-4xl md:text-6xl font-black font-racing italic tracking-tighter leading-none mb-6">
-              VISUAL <span className="text-red-600">VALIDATION</span>
+              VISUAL <span className="text-drift-orange">VALIDATION</span>
             </h2>
             <p className="text-gray-400 font-medium">Capturing the raw adrenaline, the screeching tires, and the high-octane energy we bring to every campus across India.</p>
           </div>
           <div className="flex items-center gap-4">
-            <div className="h-[2px] w-24 bg-red-600 hidden lg:block"></div>
-            <span className="text-xs font-black tracking-[0.5em] text-red-600 uppercase">Click to view performance</span>
+            <div className="h-[2px] w-24 bg-drift-green hidden lg:block"></div>
+            <span className="text-xs font-black tracking-[0.5em] text-drift-green uppercase">Click to view performance</span>
           </div>
         </div>
 
@@ -102,7 +102,7 @@ const Gallery: React.FC = () => {
                     className="w-full h-full object-cover grayscale-[50%] transition-transform duration-1000 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 rounded-full bg-red-600/80 backdrop-blur-md flex items-center justify-center text-white scale-90 group-hover:scale-110 transition-transform">
+                    <div className="w-16 h-16 rounded-full bg-drift-orange/80 backdrop-blur-md flex items-center justify-center text-white scale-90 group-hover:scale-110 transition-transform">
                       <Play size={28} fill="currentColor" />
                     </div>
                   </div>
@@ -120,16 +120,16 @@ const Gallery: React.FC = () => {
 
               {/* Tag */}
               <div className="absolute top-4 left-4 z-20">
-                <span className="bg-red-600 text-white text-[10px] font-black px-2 py-1 tracking-widest uppercase rounded-sm italic">
+                <span className="bg-drift-green text-black text-[10px] font-black px-2 py-1 tracking-widest uppercase rounded-sm italic">
                   #{item.tag}
                 </span>
               </div>
 
               {/* Hover Content */}
               <div className="absolute inset-0 z-30 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <div className="absolute inset-0 bg-red-600/20 backdrop-blur-[2px]"></div>
+                <div className="absolute inset-0 bg-drift-green/20 backdrop-blur-[2px]"></div>
                 <div className="relative transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-red-600 shadow-2xl mb-4">
+                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-drift-green shadow-2xl mb-4">
                     {item.type === 'video' ? <Play size={20} fill="currentColor" /> : <Maximize2 size={20} />}
                   </div>
                   <span className="font-racing font-black italic tracking-widest text-white uppercase text-sm">
@@ -139,7 +139,7 @@ const Gallery: React.FC = () => {
               </div>
 
               {/* Scanline Effect */}
-              <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%] opacity-20"></div>
+              <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(93,218,110,0.06),rgba(241,91,20,0.02),rgba(93,218,110,0.06))] bg-[length:100%_2px,3px_100%] opacity-20"></div>
             </div>
           ))}
         </div>
@@ -154,13 +154,13 @@ const Gallery: React.FC = () => {
           <div className="absolute inset-0 bg-black/95 backdrop-blur-2xl"></div>
 
           <div
-            className="relative z-[99999] w-full max-w-6xl aspect-video bg-neutral-900 rounded-3xl overflow-hidden shadow-[0_0_100px_rgba(220,38,38,0.3)] border border-white/10"
+            className="relative z-[99999] w-full max-w-6xl aspect-video bg-neutral-900 rounded-3xl overflow-hidden shadow-[0_0_100px_rgba(93,218,110,0.3)] border border-white/10"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header / Info */}
             <div className="absolute top-0 left-0 right-0 p-6 z-[120] flex justify-between items-center bg-gradient-to-b from-black/80 to-transparent pointer-events-none">
               <div className="flex items-center gap-4">
-                <span className="bg-red-600 text-white font-racing font-black italic px-4 py-1 tracking-widest text-xs">
+                <span className="bg-drift-green text-black font-racing font-black italic px-4 py-1 tracking-widest text-xs">
                   {selectedItem.tag}
                 </span>
                 <span className="text-white/60 text-xs font-bold tracking-widest uppercase">
@@ -169,7 +169,7 @@ const Gallery: React.FC = () => {
               </div>
               <button
                 onClick={() => setSelectedItem(null)}
-                className="pointer-events-auto w-12 h-12 rounded-full bg-red-600 hover:bg-red-700 text-white flex items-center justify-center transition-all shadow-lg hover:rotate-90"
+                className="pointer-events-auto w-12 h-12 rounded-full bg-drift-orange hover:bg-drift-orange/80 text-white flex items-center justify-center transition-all shadow-lg hover:rotate-90"
                 aria-label="Close Modal"
               >
                 <X size={24} strokeWidth={3} />
@@ -193,14 +193,14 @@ const Gallery: React.FC = () => {
                   <div className="absolute bottom-8 right-8 flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <button
                       onClick={() => setIsMuted(!isMuted)}
-                      className="w-12 h-12 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-white flex items-center justify-center hover:bg-red-600 transition-colors"
+                      className="w-12 h-12 rounded-full bg-black/50 backdrop-blur-md border border-white/10 text-white flex items-center justify-center hover:bg-drift-orange transition-colors"
                     >
                       {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
                     </button>
                   </div>
                   <div className="absolute bottom-8 left-8 pointer-events-none">
-                    <div className="flex items-center gap-2 text-red-600 animate-pulse">
-                      <div className="w-2 h-2 bg-red-600 rounded-full shadow-[0_0_10px_rgba(220,38,38,1)]"></div>
+                    <div className="flex items-center gap-2 text-drift-orange animate-pulse">
+                      <div className="w-2 h-2 bg-drift-orange rounded-full shadow-[0_0_10px_rgba(241,91,20,1)]"></div>
                       <span className="text-[10px] font-black tracking-widest uppercase">Live Replay</span>
                     </div>
                   </div>

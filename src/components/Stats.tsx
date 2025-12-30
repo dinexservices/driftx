@@ -10,7 +10,7 @@ const Stats: React.FC = () => {
   ];
 
   return (
-    <div className="relative z-20 py-12 bg-red-600">
+    <div className="relative z-20 py-12 bg-drift-green">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
         {stats.map((stat) => (
           <div key={stat.label} className="text-center group">

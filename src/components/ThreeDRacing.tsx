@@ -34,20 +34,20 @@ const ThreeDRacing: React.FC = () => {
     return (
         <section className="py-32 bg-neutral-950 relative overflow-hidden flex items-center justify-center min-h-[80vh]">
             {/* Background Ambience */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-red-900/10 via-black to-black"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-drift-green/10 via-black to-black"></div>
 
             <div className="container mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
                 {/* Text Content */}
                 <div className="order-2 lg:order-1 space-y-8">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-600/10 border border-red-600/20 text-red-500 font-bold uppercase tracking-widest text-xs">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-drift-green/10 border border-drift-green/20 text-drift-green font-bold uppercase tracking-widest text-xs">
                         <Zap size={14} />
                         <span>Next Gen Experience</span>
                     </div>
 
                     <h2 className="text-5xl md:text-7xl font-black font-racing italic text-white leading-tight">
                         IMMERSIVE <br />
-                        <span className="text-red-600">REALITY</span>
+                        <span className="text-drift-orange">REALITY</span>
                     </h2>
 
                     <p className="text-gray-400 text-lg max-w-md leading-relaxed">
@@ -74,7 +74,7 @@ const ThreeDRacing: React.FC = () => {
                         }}
                     >
                         {/* The Card */}
-                        <div className="absolute inset-0 bg-neutral-900 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(220,38,38,0.3)] border border-white/10 group">
+                        <div className="absolute inset-0 bg-neutral-900 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(93,218,110,0.3)] border border-white/10 group">
 
                             {/* Image Layer - Pushed back slightly */}
                             <div
@@ -95,7 +95,7 @@ const ThreeDRacing: React.FC = () => {
                                 style={{ transform: 'translateZ(50px)' }}
                             >
                                 <h3 className="text-4xl font-black font-racing italic text-white mb-2 drop-shadow-lg">
-                                    APEX <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">PREDATOR</span>
+                                    APEX <span className="text-transparent bg-clip-text bg-gradient-to-r from-drift-green to-drift-orange">PREDATOR</span>
                                 </h3>
                                 <div className="flex items-center justify-between border-t border-white/20 pt-4 mt-4">
                                     <div>
@@ -122,7 +122,7 @@ const ThreeDRacing: React.FC = () => {
 
                         {/* Floating Badge behind/around */}
                         <div
-                            className="absolute -top-6 -right-6 w-24 h-24 bg-red-600 rounded-full flex items-center justify-center z-20 shadow-xl"
+                            className="absolute -top-6 -right-6 w-24 h-24 bg-drift-orange rounded-full flex items-center justify-center z-20 shadow-xl"
                             style={{ transform: 'translateZ(70px)' }}
                         >
                             <span className="text-white font-black italic text-xl transform -rotate-12">3D</span>

@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 md:gap-12 mb-10 md:mb-16">
           <div className="text-center md:text-left">
             <span className="text-4xl font-black font-racing tracking-tighter italic mb-4 block">
-              DRIFT<span className="text-red-600">X</span>
+              DRIFT<span className="text-drift-green">X</span>
             </span>
             <p className="text-gray-500 max-w-sm">
               The premium motorsport experience for the next generation. Professional karts, elite tracks, unforgettable vibes.
@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
           <div className="flex flex-col items-center gap-6">
             <div className="flex gap-6">
               {[Instagram, Twitter, Facebook, Youtube].map((Icon, i) => (
-                <a key={i} href="#" className="text-gray-500 hover:text-red-600 transition-colors">
+                <a key={i} href="#" className="text-gray-500 hover:text-drift-orange transition-colors">
                   <Icon size={24} />
                 </a>
               ))}
@@ -34,11 +34,18 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="text-center pt-8 border-t border-white/5">
-          <p className="text-[10px] tracking-[0.2em] font-black text-gray-700 uppercase">
-            &copy; 2025 DRIFTX EXPERIENCE LTD. ALL RIGHTS RESERVED.
-            <span className="mx-4">PRIVACY POLICY</span>
-            <span>TERMS OF SERVICE</span>
+          <p className="text-[10px] tracking-[0.2em] font-black text-gray-700 uppercase mb-4">
+            &copy; 2026 DRIFTX EXPERIENCE LTD. ALL RIGHTS RESERVED.
+        
           </p>
+          <a
+            href="https://dinestx.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[10px] tracking-[0.2em] font-black text-gray-800 hover:text-drift-orange uppercase transition-colors"
+          >
+            Developed by Dinestx Services
+          </a>
         </div>
       </div>
     </footer>

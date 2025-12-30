@@ -5,10 +5,10 @@ import { MapPin, Users, Flag, Rocket, Zap } from 'lucide-react';
 
 const PastEvents: React.FC = () => {
   const institutions = [
-  
-   
+
+
     { name: "IIT KANPUR", event: "TECHKRITI" },
-  
+
     { name: "MNIT ALLAHABAD", event: "" },
     { name: "MNIT JAIPUR", event: "" },
     { name: "ALLAHABAD UNIVERSITY", event: "" },
@@ -25,16 +25,16 @@ const PastEvents: React.FC = () => {
     <section id="credibility" className="py-24 bg-[#050505] relative overflow-hidden">
       {/* Background speed lines effect */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
-        <div className="absolute top-1/4 left-0 w-full h-[1px] bg-red-600"></div>
-        <div className="absolute top-2/4 left-0 w-full h-[1px] bg-red-600"></div>
-        <div className="absolute top-3/4 left-0 w-full h-[1px] bg-red-600"></div>
+        <div className="absolute top-1/4 left-0 w-full h-[1px] bg-drift-green"></div>
+        <div className="absolute top-2/4 left-0 w-full h-[1px] bg-drift-green"></div>
+        <div className="absolute top-3/4 left-0 w-full h-[1px] bg-drift-green"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row gap-16 items-start">
           <div className="lg:w-1/3">
             <h2 className="text-4xl md:text-6xl font-black font-racing italic tracking-tighter mb-8 leading-tight">
-              DOMINATING <br /> THE <span className="text-red-600">CIRCUIT</span>
+              DOMINATING <br /> THE <span className="text-drift-orange">CIRCUIT</span>
             </h2>
             <p className="text-gray-400 mb-10 leading-relaxed italic">
               From the country's most elite technical institutes to the biggest cultural fests, DriftX is the undisputed choice for professional event motorsport.
@@ -42,8 +42,8 @@ const PastEvents: React.FC = () => {
 
             <div className="grid grid-cols-1 gap-6">
               {counters.map((c, i) => (
-                <div key={i} className="flex items-center gap-6 p-4 bg-white/5 border border-white/10 rounded-xl group hover:border-red-600/50 transition-all">
-                  <div className="w-12 h-12 bg-red-600/20 rounded-lg flex items-center justify-center text-red-600 group-hover:scale-110 transition-transform">
+                <div key={i} className="flex items-center gap-6 p-4 bg-white/5 border border-white/10 rounded-xl group hover:border-drift-green/50 transition-all">
+                  <div className="w-12 h-12 bg-drift-green/20 rounded-lg flex items-center justify-center text-drift-green group-hover:scale-110 transition-transform">
                     {c.icon}
                   </div>
                   <div>
@@ -58,9 +58,9 @@ const PastEvents: React.FC = () => {
           <div className="lg:w-2/3">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {institutions.map((inst, i) => (
-                <div key={i} className="relative aspect-video bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/5 rounded-2xl p-6 flex flex-col justify-center items-center group hover:bg-red-600/10 transition-all cursor-default">
-                  <div className="absolute top-3 right-3 w-2 h-2 bg-red-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                  <h3 className="text-lg font-black font-racing italic tracking-tighter text-white group-hover:text-red-600 transition-colors text-center">
+                <div key={i} className="relative aspect-video bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/5 rounded-2xl p-6 flex flex-col justify-center items-center group hover:bg-drift-green/10 transition-all cursor-default">
+                  <div className="absolute top-3 right-3 w-2 h-2 bg-drift-green rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <h3 className="text-lg font-black font-racing italic tracking-tighter text-white group-hover:text-drift-green transition-colors text-center">
                     {inst.name}
                   </h3>
                   <div className="mt-2 text-[10px] font-black tracking-widest text-gray-600 uppercase group-hover:text-white transition-colors">
@@ -73,7 +73,7 @@ const PastEvents: React.FC = () => {
               </div>
             </div>
 
-            <div className="mt-12 p-8 bg-red-600 rounded-2xl relative overflow-hidden group">
+            <div className="mt-12 p-8 bg-drift-orange rounded-2xl relative overflow-hidden group">
               {/* Fix: Using Zap which is now imported */}
               <Zap className="absolute -right-8 -bottom-8 w-48 h-48 text-black/10 group-hover:rotate-12 transition-transform duration-700" />
               <div className="relative z-10">
