@@ -74,7 +74,7 @@ const InquiryForm: React.FC = () => {
             </div>
             <div className="text-[10px] font-black tracking-[0.3em] text-gray-500 mb-2 uppercase">Headquarters</div>
             <div className="font-racing font-black text-xl italic text-white mb-2">LOCATION</div>
-            <div className="text-gray-500 text-sm font-bold uppercase tracking-widest">Noida, NCR</div>
+            <div className="text-gray-500 text-sm font-bold uppercase tracking-widest">Phagwara, Punjab</div>
           </div>
         </div>
 

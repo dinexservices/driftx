@@ -5,13 +5,12 @@ import { MapPin, Users, Flag, Rocket, Zap } from 'lucide-react';
 
 const PastEvents: React.FC = () => {
   const institutions = [
-
-
     { name: "IIT KANPUR", event: "TECHKRITI" },
-
-    { name: "MNIT ALLAHABAD", event: "" },
+    { name: "IIT PATNA", event: "" },
+    { name: "IIT ROPAR", event: "" },
     { name: "MNIT JAIPUR", event: "" },
     { name: "ALLAHABAD UNIVERSITY", event: "" },
+    { name: "LPU", event: "" },
   ];
 
   const counters = [

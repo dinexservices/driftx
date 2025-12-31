@@ -38,10 +38,10 @@ const Experience: React.FC = () => {
               <span className="text-drift-green text-glow">DRIFTX?</span>
             </h2>
             <p className="text-xl text-white font-bold mb-6 italic tracking-tight">
-              A KAIZEL INDUSTRIES SIGNATURE EXPERIENCE.
+              A DRIFTX SIGNATURE EXPERIENCE.
             </p>
             <p className="text-gray-400 text-lg leading-relaxed mb-8">
-              DriftX is an event-based go-karting experience by Kaizel Industries. We design, set up, and operate professional temporary racing tracks at colleges and large events, delivering a safe, high-adrenaline motorsport experience along with powerful brand engagement opportunities.
+              DriftX is an event-based go-karting experience. We design, set up, and operate professional temporary racing tracks at colleges and large events, delivering a safe, high-adrenaline motorsport experience along with powerful brand engagement opportunities.
             </p>
             <div className="flex items-center gap-4 p-4 bg-white/5 border-l-4 border-drift-green rounded-r-lg">
               <Zap className="text-drift-green shrink-0" fill="currentColor" size={24} />
@@ -60,7 +60,7 @@ const Experience: React.FC = () => {
             />
             <div className="absolute -bottom-6 -right-6 z-20 bg-drift-green p-8 rounded-2xl shadow-2xl hidden md:block pointer-events-none transform translate-z-50">
               <p className="font-racing font-black italic text-3xl leading-none">EST. 2025</p>
-              <p className="text-[10px] font-black tracking-widest mt-2 uppercase">Kaizel Industries</p>
+              <p className="text-[10px] font-black tracking-widest mt-2 uppercase">DriftX</p>
             </div>
           </div>
         </div>

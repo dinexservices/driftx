@@ -49,13 +49,7 @@ const WhyBrands: React.FC = () => {
           ))}
         </div>
 
-        <div className="flex flex-col items-center">
-          <a href="/DriftX_PITCH_DECK.pdf" download="DriftX_Pitch_Deck.pdf" className="group flex items-center gap-4 bg-white text-black hover:bg-drift-orange hover:text-white px-10 py-5 rounded-sm font-black font-racing italic tracking-widest text-lg transition-all">
-            DOWNLOAD SPONSOR BROCHURE
-            <Download size={20} className="group-hover:translate-x-1 transition-transform" />
-          </a>
-          <p className="mt-6 text-[10px] font-black tracking-[0.5em] text-gray-600 uppercase">Customized decks available on request</p>
-        </div>
+    
       </div>
     </section>
   );

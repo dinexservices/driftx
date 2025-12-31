@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useRef, useState } from 'react';
-import { MousePointer2, Zap } from 'lucide-react';
+import { MousePointer2, Zap, QrCode } from 'lucide-react';
 
 const ThreeDRacing: React.FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -67,65 +67,98 @@ const ThreeDRacing: React.FC = () => {
                         onMouseMove={handleMouseMove}
                         onMouseEnter={() => setIsHovering(true)}
                         onMouseLeave={handleMouseLeave}
-                        className="relative w-full max-w-md aspect-[3/4] transition-transform duration-100 ease-out"
+                        className="relative w-full max-w-sm aspect-[9/16] transition-transform duration-100 ease-out"
                         style={{
                             transform: `perspective(1000px) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
                             transformStyle: 'preserve-3d'
                         }}
                     >
-                        {/* The Card */}
-                        <div className="absolute inset-0 bg-neutral-900 rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(93,218,110,0.3)] border border-white/10 group">
+                        {/* The Pass */}
+                        <div className="absolute inset-0 bg-neutral-900 rounded-3xl overflow-hidden  border border-white/10 group flex flex-col">
 
-                            {/* Image Layer - Pushed back slightly */}
-                            <div
-                                className="absolute inset-0 transition-transform duration-200"
-                                style={{ transform: 'translateZ(-50px) scale(1.1)' }}
-                            >
-                                <img
-                                    src="/images/gokart-3d.png"
-                                    alt="3D Go Kart"
-                                    className="w-full h-full object-cover"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
-                            </div>
+                            {/* Lanyard Hole */}
+                            <div className="absolute top-6 left-1/2 -translate-x-1/2 w-16 h-4 bg-black rounded-full border border-white/10 z-20 shadow-inner"></div>
 
-                            {/* Floating Elements - Pushed forward */}
-                            <div
-                                className="absolute bottom-8 left-8 right-8 transform transition-transform duration-200"
-                                style={{ transform: 'translateZ(50px)' }}
-                            >
-                                <h3 className="text-4xl font-black font-racing italic text-white mb-2 drop-shadow-lg">
-                                    APEX <span className="text-transparent bg-clip-text bg-gradient-to-r from-drift-green to-drift-orange">PREDATOR</span>
-                                </h3>
-                                <div className="flex items-center justify-between border-t border-white/20 pt-4 mt-4">
+                            {/* Top Section - Branding */}
+                            <div className="pt-16 pb-6 px-6 bg-gradient-to-b from-drift-green/20 to-transparent border-b border-white/5 relative z-10">
+                                <div className="flex justify-between items-start">
                                     <div>
-                                        <div className="text-xs text-gray-400 uppercase tracking-widest mb-1">Top Speed</div>
-                                        <div className="text-xl font-bold text-white">120 KM/H</div>
+                                        <div className="flex items-center gap-2 mb-1">
+                                            <Zap size={14} className="text-drift-green" fill="currentColor" />
+                                            <span className="text-[10px] font-black tracking-widest text-drift-green uppercase">OFFICIAL ACCESS</span>
+                                        </div>
+                                        <h3 className="text-3xl font-black font-racing italic text-white leading-none">
+                                            DRIFT<span className="text-drift-green">X</span>
+                                        </h3>
                                     </div>
                                     <div className="text-right">
-                                        <div className="text-xs text-gray-400 uppercase tracking-widest mb-1">0-100</div>
-                                        <div className="text-xl font-bold text-white">3.2s</div>
+                                        <div className="text-2xl font-black font-racing italic text-white/20">2025</div>
                                     </div>
                                 </div>
                             </div>
 
-                            {/* Glossy Overlay Reflection */}
+                            {/* Main Visual Image */}
+                            <div className="relative h-64 overflow-hidden mx-6 mt-4 rounded-xl border border-white/10 group-hover:border-drift-green/50 transition-colors">
+                                <img
+                                    src="/images/gokart-3d.png"
+                                    alt="Racer Profile"
+                                    className="w-full h-full object-cover transform scale-125 translate-y-4"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-transparent to-transparent"></div>
+
+                                {/* VIP Badge */}
+                                <div className="absolute bottom-3 right-3 px-3 py-1 bg-drift-orange text-black text-[10px] font-black tracking-widest uppercase rounded">
+                                    VIP RACER
+                                </div>
+                            </div>
+
+                            {/* Event Details */}
+                            <div className="flex-1 px-8 py-6 space-y-5">
+                                <div className="grid grid-cols-2 gap-4 border-b border-white/5 pb-5">
+                                    <div>
+                                        <div className="text-[10px] text-gray-500 uppercase tracking-widest mb-1">EVENT DATE</div>
+                                        <div className="text-sm font-bold text-white font-racing tracking-wide">OCT 12-14</div>
+                                    </div>
+                                    <div>
+                                        <div className="text-[10px] text-gray-500 uppercase tracking-widest mb-1">GATE ENTRY</div>
+                                        <div className="text-sm font-bold text-white font-racing tracking-wide">GATE A4</div>
+                                    </div>
+                                    <div className="col-span-2">
+                                        <div className="text-[10px] text-gray-500 uppercase tracking-widest mb-1">VENUE LOCATION</div>
+                                        <div className="text-lg font-bold text-white font-racing tracking-wide text-drift-green">IIT KANPUR ARENA</div>
+                                    </div>
+                                </div>
+
+                                {/* QR Code Section */}
+                                <div className="flex items-center justify-between pt-2">
+                                    <div className="bg-white p-2 rounded-lg">
+                                        <QrCode size={48} className="text-black" />
+                                    </div>
+                                    <div className="text-right">
+                                        <div className="text-[10px] text-gray-600 font-mono mb-1">TICKET ID</div>
+                                        <div className="text-xs font-mono text-gray-400">DX-2025-KAN-8842</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Holographic Overlay */}
                             <div
-                                className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/10 to-white/0 pointer-events-none"
+                                className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none mix-blend-overlay"
                                 style={{
-                                    transform: `translateX(${rotation.y * 2}%) translateY(${rotation.x * 2}%)`,
-                                    opacity: isHovering ? 1 : 0,
+                                    transform: `translateX(${rotation.y * 3}%) translateY(${rotation.x * 3}%)`,
+                                    opacity: isHovering ? 1 : 0.3,
                                     transition: 'opacity 0.3s'
                                 }}
                             ></div>
-                        </div>
 
-                        {/* Floating Badge behind/around */}
-                        <div
-                            className="absolute -top-6 -right-6 w-24 h-24 bg-drift-orange rounded-full flex items-center justify-center z-20 shadow-xl"
-                            style={{ transform: 'translateZ(70px)' }}
-                        >
-                            <span className="text-white font-black italic text-xl transform -rotate-12">3D</span>
+                            {/* Rainbow Sheen */}
+                            <div
+                                className="absolute inset-0 bg-gradient-to-br from-transparent via-drift-green/10 to-drift-orange/10 pointer-events-none mix-blend-color-dodge"
+                                style={{
+                                    opacity: isHovering ? 0.5 : 0,
+                                    transition: 'opacity 0.3s'
+                                }}
+                            ></div>
                         </div>
                     </div>
                 </div>

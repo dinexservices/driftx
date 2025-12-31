@@ -97,7 +97,7 @@ const Hero: React.FC = () => {
       >
         {/* Background Visuals */}
         <div className="absolute inset-0 z-0">
-          <div className={`absolute inset-0 bg-gradient-to-b from-black/80 via-black/80 to-black z-10 transition-opacity duration-1000 ${hasStarted ? 'opacity-40' : 'opacity-90'}`} />
+          <div className={`absolute inset-0 bg-gradient-to-b from-black/60 via-black/80 to-black z-10 transition-opacity duration-1000 ${hasStarted ? 'opacity-40' : 'opacity-80'}`} />
 
           <video
             ref={videoRef}
@@ -116,14 +116,13 @@ const Hero: React.FC = () => {
           {/* Grid Overlay */}
           <div className="absolute inset-0 bg-grid opacity-20 z-20 pointer-events-none" />
 
-          {/* Grain Effect */}
-          <div className="absolute inset-0 opacity-[0.05] z-20 pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
+ 
         </div>
 
         {/* Content Container */}
         <div className={`relative z-30 container mx-auto px-4 sm:px-6 text-center transition-all duration-700 ${hasStarted ? 'opacity-0 pointer-events-none scale-110' : 'opacity-100'}`}>
           <div className="min-h-[160px] md:min-h-[280px] flex items-center justify-center">
-            <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black font-racing italic leading-tight tracking-tighter mb-4 text-glow">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black font-racing italic leading-tight tracking-tighter mb-4 text-glow">
               {headlines[headlineIndex].split(' ').map((word, i) => {
                 const isHighlight = ["DRIFTX", "MOTORSPORT", "RACING", "ARENAS.", "EXPERIENCE."].includes(word.toUpperCase());
                 return (

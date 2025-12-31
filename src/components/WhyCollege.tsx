@@ -1,7 +1,16 @@
 "use client"
 import React, { useRef, useEffect, useState } from 'react';
-import { Download, CheckCircle2, Trophy } from 'lucide-react';
-import ThreeDCard from './ThreeDCard';
+import { Download, CheckCircle2, Trophy, Play, Pause, Volume2, VolumeX } from 'lucide-react';
+
+
+const points = [
+  "Unmatched Student Footfall",
+  "Technical Innovation Showcase",
+  "Professional Safety Standards",
+  "National Brand Visibility",
+  "End-to-End Event Management",
+  "High-Octane Entertainment"
+];
 
 const WhyColleges: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -26,26 +35,33 @@ const WhyColleges: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const points = [
-    "High-footfall flagship attraction",
-    "No permanent infrastructure required",
-    "Professional execution & safety management",
-    "Revenue-sharing or fixed-fee models",
-    "Boosts fest engagement & visibility",
-    "Strong social media & visual impact"
-  ];
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  const togglePlay = () => {
+    if (iframeRef.current && iframeRef.current.contentWindow) {
+      const action = isPlaying ? 'pauseVideo' : 'playVideo';
+      iframeRef.current.contentWindow.postMessage(`{"event":"command","func":"${action}","args":""}`, '*');
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const toggleMute = () => {
+    if (iframeRef.current && iframeRef.current.contentWindow) {
+      const action = isMuted ? 'unMute' : 'mute'; // Note: YouTube API uses 'unMute' (camelCase)
+      iframeRef.current.contentWindow.postMessage(`{"event":"command","func":"${action}","args":""}`, '*');
+      setIsMuted(!isMuted);
+    }
+  };
+
 
   return (
     <section ref={sectionRef} id="colleges" className="relative py-16 md:py-32 overflow-hidden bg-black">
       {/* Dynamic Parallax Background Layer */}
       <div
         className="absolute inset-0 z-0 opacity-20 grayscale scale-110"
-        style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1541443131876-44b03de101c5?auto=format&fit=crop&q=80&w=2000")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          transform: `translateY(${offset}px)`
-        }}
+    
       ></div>
       <div className="absolute inset-0 z-10 bg-gradient-to-r from-black via-black/90 to-transparent"></div>
 
@@ -77,15 +93,42 @@ const WhyColleges: React.FC = () => {
           </a>
         </div>
 
-        <div className="hidden lg:block relative">
-          <div className="absolute -inset-4 border-2 border-drift-green/30 rounded-2xl rotate-3"></div>
-          <div className="absolute -inset-4 border-2 border-white/10 rounded-2xl -rotate-3"></div>
-          <ThreeDCard
-            src="/images/college-race.png"
-            alt="College Fest Racing"
-            className="rounded-2xl relative z-10"
-            intensity={15}
-          />
+        <div className="hidden lg:block relative h-[600px] w-full max-w-[340px] mx-auto">
+          {/* Phone Frame / Container */}
+          <div className="relative w-full h-full rounded-[2.5rem] overflow-hidden border-8 border-neutral-900 bg-neutral-900 shadow-2xl">
+            <iframe
+              ref={iframeRef}
+              className="w-full h-full object-cover"
+              src="https://www.youtube.com/embed/I0T9-B5ruWE?enablejsapi=1&autoplay=1&mute=1&controls=0&loop=1&playlist=I0T9-B5ruWE&modestbranding=1&rel=0"
+              title="DriftX Action"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+
+            {/* Custom Controls Overlay */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-4 bg-black/60 backdrop-blur-md px-6 py-3 rounded-full border border-white/10 z-20">
+              <button
+                onClick={togglePlay}
+                className="text-white hover:text-drift-green transition-colors"
+              >
+                {isPlaying ? <Pause size={24} fill="currentColor" /> : <Play size={24} fill="currentColor" />}
+              </button>
+              <div className="w-[1px] h-6 bg-white/20"></div>
+              <button
+                onClick={toggleMute}
+                className="text-white hover:text-drift-green transition-colors"
+              >
+                {isMuted ? <VolumeX size={24} /> : <Volume2 size={24} />}
+              </button>
+            </div>
+
+            {/* Gradient overlays for better integration */}
+            <div className="absolute inset-0 pointer-events-none rounded-[2rem] shadow-[inset_0_0_40px_rgba(0,0,0,0.5)]"></div>
+          </div>
+
+          {/* Decorative elements around the player */}
+          <div className="absolute -inset-4 border-2 border-drift-green/30 rounded-[3rem] -z-10 rotate-3 animate-pulse"></div>
+          <div className="absolute -inset-4 border-2 border-white/10 rounded-[3rem] -z-10 -rotate-3"></div>
         </div>
       </div>
 
