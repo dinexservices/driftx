@@ -27,6 +27,7 @@ const PartnersSponsors: React.FC = () => {
     { name: "TICKETING HIVE" },
     { name: "uni bazar" },
     { name: "dejabrew", logo: "/sponsors/deja.jpeg" },
+    { name: "Dinex Services", logo: "/sponsors/dinex.webp" },
   ];
 
   return (
