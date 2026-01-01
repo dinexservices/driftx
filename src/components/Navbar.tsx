@@ -35,8 +35,8 @@ const Navbar: React.FC = () => {
     <>
       <nav
         className={`fixed w-full left-0 top-0 z-[9999] transition-all duration-500 ${isScrolled || isOpen
-            ? 'bg-black/95 backdrop-blur-xl py-4 border-b border-white/10 shadow-2xl'
-            : 'bg-transparent py-6'
+          ? 'bg-black/95 backdrop-blur-xl py-4 border-b border-white/10 shadow-2xl'
+          : 'bg-transparent py-6'
           }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center relative z-[10001]">
@@ -79,6 +79,14 @@ const Navbar: React.FC = () => {
                 Coming Soon
               </div>
             </div>
+
+            {/* Contact Us Button */}
+            <a
+              href="#contact"
+              className="text-[11px] font-bold tracking-[0.2em] text-gray-300 hover:text-drift-orange transition-colors mr-2"
+            >
+              CONTACT US
+            </a>
 
             {/* CTA Button */}
             <a
@@ -143,6 +151,16 @@ const Navbar: React.FC = () => {
               SOON
             </span>
           </div>
+
+          <a
+            href="#contact"
+            className={`mt-auto text-xl font-black italic tracking-tighter text-white hover:text-drift-orange transition-all duration-500 transform ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+              }`}
+            style={{ transitionDelay: '400ms' }}
+            onClick={() => setIsOpen(false)}
+          >
+            CONTACT US
+          </a>
 
           <a
             href="#contact"

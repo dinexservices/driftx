@@ -1,8 +1,88 @@
 
 import React from 'react';
-import { Award, Star, Zap, Download } from 'lucide-react';
+import { Award, Star, Zap, Download, Play, Pause } from 'lucide-react';
 
 const PartnersSponsors: React.FC = () => {
+  const scrollRef = React.useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = React.useState(false);
+  const [startX, setStartX] = React.useState(0);
+  const [scrollLeft, setScrollLeft] = React.useState(0);
+
+  React.useEffect(() => {
+    const scroller = scrollRef.current;
+    if (!scroller) return;
+
+    let animationId: number;
+    // We render 4 copies. Loop point is width of one copy.
+    // Total width approx = 4 * singleWidth.
+    // Ideally we want to scroll continuously.
+
+    // Auto-scroll loop
+    const loop = () => {
+      if (!isDragging && scroller) {
+        scroller.scrollLeft += 1; // Speed: 1px/frame
+
+        // Infinite Loop Logic
+        // If we have scrolled past the first set (1/4th of total width), reset to 0?
+        // Actually, to loop backwards too, it's better to start in the middle?
+        // Standard marquee: scroll right to left.
+        // If scrollLeft >= (scrollWidth / 4), we can subtract (scrollWidth / 4) to snap back without visual glitch
+        // assuming all 4 sets are identical.
+        const oneSetWidth = scroller.scrollWidth / 4;
+
+        if (scroller.scrollLeft >= oneSetWidth * 3) {
+          // Reset closer to start to prevent running out
+          scroller.scrollLeft -= oneSetWidth;
+        } else if (scroller.scrollLeft <= 0) {
+          // If dragged way back?
+          // scroller.scrollLeft += oneSetWidth;
+        }
+      }
+      animationId = requestAnimationFrame(loop);
+    };
+
+    // Initialize scroll position to show continuous flow if needed, 
+    // but starting at 0 is fine for R-to-L if we have content.
+
+    animationId = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(animationId);
+  }, [isDragging]);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true);
+    if (scrollRef.current) {
+      setStartX(e.pageX - scrollRef.current.offsetLeft);
+      setScrollLeft(scrollRef.current.scrollLeft);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 2; // Scroll-fast
+    scrollRef.current.scrollLeft = scrollLeft - walk;
+
+    // Check bounds during drag for infinite feel
+    const oneSetWidth = scrollRef.current.scrollWidth / 4;
+    if (scrollRef.current.scrollLeft >= oneSetWidth * 3) {
+      scrollRef.current.scrollLeft -= oneSetWidth;
+      // update startX/scrollLeft ref base? It's tricky with live drag.
+      // For simple "slide control", letting it hit edge momentarily is okay,
+      // but let's just let the loop fix it on release or keep it simple.
+    } else if (scrollRef.current.scrollLeft <= 0) {
+      scrollRef.current.scrollLeft += oneSetWidth;
+    }
+  };
+
   const tiers = [
     { name: "TITLE PARTNER", company: "KAIZEL INDUSTRIES", logo: "https://via.placeholder.com/150/000000/FFFFFF?text=KAIZEL", color: "text-drift-green" },
     { name: "GOLD PARTNER", company: "RACE_TEC", logo: "https://via.placeholder.com/150/000000/FFFFFF?text=RACE_TEC", color: "text-yellow-500" },
@@ -116,18 +196,27 @@ const PartnersSponsors: React.FC = () => {
 
       {/* (Tiered Grid Removed as per request) */}
 
-      {/* Auto-scroll Marquee */}
-      <div className="bg-drift-green/5 py-12 border-y border-white/5">
-        <div className="flex whitespace-nowrap animate-marquee-reverse">
-          {[1, 2].map((_, i) => (
-            <div key={i} className="flex items-center gap-16 px-8">
+      {/* Draggable Infinite Marquee */}
+      <div className="bg-drift-green/5 py-12 border-y border-white/5 relative group/marquee">
+        <div
+          ref={scrollRef}
+          className="flex overflow-x-hidden cursor-grab active:cursor-grabbing select-none"
+          onMouseDown={handleMouseDown}
+          onMouseLeave={handleMouseLeave}
+          onMouseUp={handleMouseUp}
+          onMouseMove={handleMouseMove}
+        >
+          {/* Tripled content to give enough buffer for seamless infinite scroll in both directions */}
+          {[1, 2, 3, 4].map((_, i) => (
+            <div key={i} className="flex items-center gap-16 px-8 shrink-0">
               {carouselLogos.map((brand, idx) => (
                 <div key={idx} className="flex items-center gap-4 group cursor-pointer">
                   {brand.logo ? (
                     <img
                       src={brand.logo}
                       alt={brand.name}
-                      className="h-12 w-auto max-w-[150px] object-contain transition-all duration-300"
+                      onDragStart={(e) => e.preventDefault()} // Prevent image drag behavior
+                      className="h-12 w-auto max-w-[150px] object-contain transition-all duration-300 pointer-events-none" // pointer-events-none helps with dragging container
                     />
                   ) : (
                     <>

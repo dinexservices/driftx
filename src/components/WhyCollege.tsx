@@ -55,13 +55,76 @@ const WhyColleges: React.FC = () => {
     }
   };
 
+  // Marquee Logic
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  useEffect(() => {
+    const scroller = scrollRef.current;
+    if (!scroller) return;
+
+    let animationId: number;
+
+    // Auto-scroll loop
+    const loop = () => {
+      if (!isDragging && scroller) {
+        scroller.scrollLeft += 1; // Speed: 1px/frame
+
+        const oneSetWidth = scroller.scrollWidth / 4;
+
+        if (scroller.scrollLeft >= oneSetWidth * 3) {
+          scroller.scrollLeft -= oneSetWidth;
+        } else if (scroller.scrollLeft <= 0) {
+          scroller.scrollLeft += oneSetWidth;
+        }
+      }
+      animationId = requestAnimationFrame(loop);
+    };
+
+    animationId = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(animationId);
+  }, [isDragging]);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true);
+    if (scrollRef.current) {
+      setStartX(e.pageX - scrollRef.current.offsetLeft);
+      setScrollLeft(scrollRef.current.scrollLeft);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !scrollRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX) * 2;
+    scrollRef.current.scrollLeft = scrollLeft - walk;
+
+    const oneSetWidth = scrollRef.current.scrollWidth / 4;
+    if (scrollRef.current.scrollLeft >= oneSetWidth * 3) {
+      scrollRef.current.scrollLeft -= oneSetWidth;
+    } else if (scrollRef.current.scrollLeft <= 0) {
+      scrollRef.current.scrollLeft += oneSetWidth;
+    }
+  };
+
 
   return (
     <section ref={sectionRef} id="colleges" className="relative py-16 md:py-32 overflow-hidden bg-black">
       {/* Dynamic Parallax Background Layer */}
       <div
         className="absolute inset-0 z-0 opacity-20 grayscale scale-110"
-    
+
       ></div>
       <div className="absolute inset-0 z-10 bg-gradient-to-r from-black via-black/90 to-transparent"></div>
 
@@ -87,7 +150,7 @@ const WhyColleges: React.FC = () => {
             ))}
           </div>
 
-          <a href="/DriftX_PITCH_DECK.pdf" download="DriftX_Pitch_Deck.pdf" className="group flex items-center gap-4 bg-drift-green hover:bg-drift-green/90 text-black px-8 py-5 rounded-sm font-black font-racing italic tracking-widest text-lg transition-all shadow-[0_0_20px_rgba(93,218,110,0.3)]">
+          <a href="/DriftX_PITCH_DECK.pdf" download="DriftX_Pitch_Deck.pdf" className="group inline-flex items-center gap-4 bg-drift-green hover:bg-drift-green/90 text-black px-8 py-5 rounded-sm font-black font-racing italic tracking-widest text-lg transition-all shadow-[0_0_20px_rgba(93,218,110,0.3)]">
             DOWNLOAD COLLEGE PROPOSAL
             <Download size={20} className="group-hover:translate-y-1 transition-transform" />
           </a>
@@ -132,11 +195,19 @@ const WhyColleges: React.FC = () => {
         </div>
       </div>
 
-      {/* College Partners Marquee */}
-      <div className="mt-20 border-y border-white/5 py-8 bg-black/50 overflow-hidden relative z-20">
-        <div className="flex whitespace-nowrap animate-marquee">
-          {[1, 2, 3].map((_, i) => (
-            <div key={i} className="flex items-center gap-16 px-8">
+      {/* Draggable College Partners Marquee */}
+      <div className="mt-20 border-y border-white/5 py-8 bg-black/50 overflow-hidden relative z-20 group/marquee">
+        <div
+          ref={scrollRef}
+          className="flex overflow-x-hidden cursor-grab active:cursor-grabbing select-none"
+          onMouseDown={handleMouseDown}
+          onMouseLeave={handleMouseLeave}
+          onMouseUp={handleMouseUp}
+          onMouseMove={handleMouseMove}
+        >
+          {/* Tripled content for seamless looping */}
+          {[1, 2, 3, 4].map((_, i) => (
+            <div key={i} className="flex items-center gap-16 px-8 shrink-0">
               {["IIT KANPUR", "MNIT ALLAHABAD", "MNIT JAIPUR", "ALLAHABAD UNIVERSITY", "IIT BHU", "BIT MESRA"].map((college, idx) => (
                 <span key={idx} className="text-2xl md:text-3xl font-black font-racing italic tracking-tighter text-white/20 hover:text-drift-green transition-colors cursor-default">
                   {college}

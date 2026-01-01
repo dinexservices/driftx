@@ -32,14 +32,14 @@ const ThreeDRacing: React.FC = () => {
     };
 
     return (
-        <section className="py-32 bg-neutral-950 relative overflow-hidden flex items-center justify-center min-h-[80vh]">
+        <section id="pass" className="py-32 bg-neutral-950 relative overflow-hidden flex items-center justify-center min-h-[80vh]">
             {/* Background Ambience */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-drift-green/10 via-black to-black"></div>
 
             <div className="container mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
                 {/* Text Content */}
-                <div className="order-2 lg:order-1 space-y-8">
+                <div className="space-y-8">
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-drift-green/10 border border-drift-green/20 text-drift-green font-bold uppercase tracking-widest text-xs">
                         <Zap size={14} />
                         <span>Next Gen Experience</span>
@@ -61,7 +61,7 @@ const ThreeDRacing: React.FC = () => {
                 </div>
 
                 {/* 3D Card Area */}
-                <div className="order-1 lg:order-2 flex items-center justify-center perspective-1000">
+                <div className="flex items-center justify-center perspective-1000">
                     <div
                         ref={containerRef}
                         onMouseMove={handleMouseMove}

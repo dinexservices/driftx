@@ -116,7 +116,7 @@ const Hero: React.FC = () => {
           {/* Grid Overlay */}
           <div className="absolute inset-0 bg-grid opacity-20 z-20 pointer-events-none" />
 
- 
+
         </div>
 
         {/* Content Container */}
@@ -160,12 +160,20 @@ const Hero: React.FC = () => {
             <h3 className="text-2xl sm:text-4xl font-black font-racing italic text-white drop-shadow-lg tracking-widest text-glow">
               NOW DRIVING
             </h3>
-            <a
-              href="#contact"
-              className="px-6 py-3 sm:px-10 sm:py-4 bg-drift-green hover:bg-drift-green/90 text-black font-black font-racing italic tracking-widest text-sm sm:text-lg rounded-sm transition-all hover:scale-105 shadow-[0_0_30px_rgba(93,218,110,0.4)]"
-            >
-              HOST DRIFTX
-            </a>
+            <div className="flex flex-col sm:flex-row items-center gap-4">
+              <a
+                href="#contact"
+                className="px-6 py-3 sm:px-10 sm:py-4 bg-drift-green hover:bg-drift-green/90 text-black font-black font-racing italic tracking-widest text-sm sm:text-lg rounded-sm transition-all hover:scale-105 shadow-[0_0_30px_rgba(93,218,110,0.4)]"
+              >
+                HOST DRIFTX
+              </a>
+              <a
+                href="#pass"
+                className="px-6 py-3 sm:px-10 sm:py-4 bg-drift-orange hover:bg-drift-orange/90 text-white font-black font-racing italic tracking-widest text-sm sm:text-lg rounded-sm transition-all hover:scale-105 shadow-[0_0_30px_rgba(241,91,20,0.4)]"
+              >
+                GET YOUR PASS
+              </a>
+            </div>
           </div>
         </div>
 

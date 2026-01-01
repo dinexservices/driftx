@@ -39,7 +39,7 @@ const PastEvents: React.FC = () => {
               From the country's most elite technical institutes to the biggest cultural fests, DriftX is the undisputed choice for professional event motorsport.
             </p>
 
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6">
               {counters.map((c, i) => (
                 <div key={i} className="flex items-center gap-6 p-4 bg-white/5 border border-white/10 rounded-xl group hover:border-drift-green/50 transition-all">
                   <div className="w-12 h-12 bg-drift-green/20 rounded-lg flex items-center justify-center text-drift-green group-hover:scale-110 transition-transform">
