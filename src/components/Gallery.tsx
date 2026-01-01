@@ -5,9 +5,10 @@ import { Play, Maximize2, X, Volume2, VolumeX } from 'lucide-react';
 
 interface MediaItem {
   url: string;
-  type: 'image' | 'video';
+  type: 'image' | 'video' | 'youtube';
   tag: string;
   poster?: string;
+  youtubeId?: string;
 }
 
 const Gallery: React.FC = () => {
@@ -20,38 +21,42 @@ const Gallery: React.FC = () => {
   }, []);
 
   const mediaItems: MediaItem[] = [
+
+    // YouTube Shorts
     {
-      url: "/images/gokart-action.png",
-      type: 'image',
-      tag: 'TRACK-DOMINANCE'
+      url: "https://www.youtube.com/embed/ttCtsk8OVnI",
+      type: 'youtube',
+      tag: 'DRIFT-KING',
+      youtubeId: 'ttCtsk8OVnI'
     },
     {
-      url: "https://assets.mixkit.co/videos/preview/mixkit-go-kart-racing-on-a-track-4451-large.mp4",
-      type: 'video',
-      tag: 'RACE-RECAP',
-      poster: "https://images.unsplash.com/photo-1532433566133-c36148281358?auto=format&fit=crop&q=80&w=800"
+      url: "https://www.youtube.com/embed/JLCi7iYUpgc",
+      type: 'youtube',
+      tag: 'SPEED-DEMON',
+      youtubeId: 'JLCi7iYUpgc'
     },
     {
-      url: "/images/gokart-drift.png",
-      type: 'image',
-      tag: 'DRIFT-MASTER'
+      url: "https://www.youtube.com/embed/WAsJKRpCj8E",
+      type: 'youtube',
+      tag: 'TRACK-MODE',
+      youtubeId: 'WAsJKRpCj8E'
+    },
+
+    {
+      url: "https://www.youtube.com/embed/AANU7Wb6CeI",
+      type: 'youtube',
+      tag: 'ADRENALINE',
+      youtubeId: 'AANU7Wb6CeI'
     },
     {
-      url: "/images/gokart-driver.png",
-      type: 'image',
-      tag: 'FOCUS-ZONE'
+      url: "https://www.youtube.com/embed/Y4zOpbgh4mQ",
+      type: 'youtube',
+      tag: 'VICTORY-LAP',
+      youtubeId: 'Y4zOpbgh4mQ'
     },
-    {
-      url: "https://assets.mixkit.co/videos/preview/mixkit-speeding-go-kart-on-a-track-4452-large.mp4",
-      type: 'video',
-      tag: 'POV-CAM',
-      poster: "https://images.unsplash.com/photo-1590330297626-d7601f01031d?auto=format&fit=crop&q=80&w=800"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1547915713-7928b577038e?auto=format&fit=crop&q=80&w=1200",
-      type: 'image',
-      tag: 'TECHKRITI'
-    }
+ 
+    
+
   ];
 
   // Prevent scroll when modal is open
@@ -62,6 +67,13 @@ const Gallery: React.FC = () => {
       document.body.style.overflow = 'unset';
     }
   }, [selectedItem]);
+
+  const getThumbnail = (item: MediaItem) => {
+    if (item.type === 'youtube' && item.youtubeId) {
+      return `https://img.youtube.com/vi/${item.youtubeId}/maxresdefault.jpg`;
+    }
+    return item.poster || item.url;
+  };
 
   return (
     <section id="gallery" className="py-12 md:py-24 bg-black relative overflow-hidden">
@@ -94,11 +106,18 @@ const Gallery: React.FC = () => {
               className={`group relative overflow-hidden rounded-xl bg-neutral-900 cursor-pointer ${i === 0 || i === 4 ? 'md:row-span-2' : ''
                 }`}
             >
-              {item.type === 'video' ? (
+              {(item.type === 'video' || item.type === 'youtube') ? (
                 <div className="w-full h-full relative">
                   <img
-                    src={item.poster}
+                    src={getThumbnail(item)}
                     alt={item.tag}
+                    onError={(e) => {
+                      // Fallback for youtube maxresdefault if not available
+                      if (item.type === 'youtube' && item.youtubeId) {
+                        const target = e.target as HTMLImageElement;
+                        target.src = `https://img.youtube.com/vi/${item.youtubeId}/hqdefault.jpg`;
+                      }
+                    }}
                     className="w-full h-full object-cover grayscale-[50%] transition-transform duration-1000 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -130,10 +149,10 @@ const Gallery: React.FC = () => {
                 <div className="absolute inset-0 bg-drift-green/20 backdrop-blur-[2px]"></div>
                 <div className="relative transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 flex flex-col items-center">
                   <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-drift-green shadow-2xl mb-4">
-                    {item.type === 'video' ? <Play size={20} fill="currentColor" /> : <Maximize2 size={20} />}
+                    {item.type === 'image' ? <Maximize2 size={20} /> : <Play size={20} fill="currentColor" />}
                   </div>
                   <span className="font-racing font-black italic tracking-widest text-white uppercase text-sm">
-                    {item.type === 'video' ? 'Play Race' : 'Expand View'}
+                    {item.type === 'image' ? 'Expand View' : 'Play Video'}
                   </span>
                 </div>
               </div>
@@ -154,7 +173,7 @@ const Gallery: React.FC = () => {
           <div className="absolute inset-0 bg-black/95 backdrop-blur-2xl"></div>
 
           <div
-            className="relative z-[99999] w-full max-w-6xl aspect-video bg-neutral-900 rounded-3xl overflow-hidden shadow-[0_0_100px_rgba(93,218,110,0.3)] border border-white/10"
+            className="relative z-[99999] w-full max-w-6xl aspect-video bg-neutral-900 rounded-3xl overflow-hidden border border-white/10"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header / Info */}
@@ -164,7 +183,7 @@ const Gallery: React.FC = () => {
                   {selectedItem.tag}
                 </span>
                 <span className="text-white/60 text-xs font-bold tracking-widest uppercase">
-                  {selectedItem.type === 'video' ? 'Official Event Capture' : 'Live Circuit Photography'}
+                  {selectedItem.type === 'image' ? 'Live Circuit Photography' : 'Official Event Capture'}
                 </span>
               </div>
               <button
@@ -178,7 +197,18 @@ const Gallery: React.FC = () => {
 
             {/* Content Display */}
             <div className="w-full h-full flex items-center justify-center bg-black">
-              {selectedItem.type === 'video' ? (
+              {selectedItem.type === 'youtube' ? (
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src={`${selectedItem.url}?autoplay=1&rel=0`}
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="w-full h-full"
+                ></iframe>
+              ) : selectedItem.type === 'video' ? (
                 <div className="relative w-full h-full group">
                   <video
                     src={selectedItem.url}
