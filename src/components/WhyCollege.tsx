@@ -150,7 +150,7 @@ const WhyColleges: React.FC = () => {
             ))}
           </div>
 
-          <a href="/DriftX_PITCH_DECK.pdf" download="DriftX_Pitch_Deck.pdf" className="group inline-flex items-center gap-4 bg-drift-green hover:bg-drift-green/90 text-black px-8 py-5 rounded-sm font-black font-racing italic tracking-widest text-lg transition-all shadow-[0_0_20px_rgba(93,218,110,0.3)]">
+          <a href="/DriftXINDIA.pdf" download="DriftXINDIA.pdf" className="group inline-flex items-center gap-4 bg-drift-green hover:bg-drift-green/90 text-black px-8 py-5 rounded-sm font-black font-racing italic tracking-widest text-lg transition-all shadow-[0_0_20px_rgba(93,218,110,0.3)]">
             DOWNLOAD COLLEGE PROPOSAL
             <Download size={20} className="group-hover:translate-y-1 transition-transform" />
           </a>

@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://driftxindia.in"),
   title: "DriftX | India's Premier Event Motorsport Experience",
   description: "DriftX brings professional go-karting and motorsport experiences to college fests and brand events across India. Turning campuses into racing arenas.",
   keywords: ["DriftX", "Motorsport", "Go-karting", "College Fests", "Racing", "Event Management", "Campus Events", "India", "Student Activities"],
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "DriftX | India's Premier Event Motorsport Experience",
     description: "DriftX brings professional go-karting and motorsport experiences to college fests and brand events across India. Turning campuses into racing arenas.",
-    url: "https://driftx.racing",
+    url: "https://driftxindia.in",
     siteName: "DriftX",
     images: [
       {

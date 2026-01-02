@@ -185,7 +185,7 @@ const PartnersSponsors: React.FC = () => {
           <div className="relative z-10 w-12 h-12 bg-drift-orange rounded-xl flex items-center justify-center text-black shadow-[0_0_20px_rgba(241,91,20,0.4)] group-hover:scale-110 transition-transform">
             <Download size={24} strokeWidth={2.5} />
           </div>
-          <a href="/DriftX_PITCH_DECK.pdf" target="_blank" rel="noopener noreferrer">
+          <a href="/Sponsorship Deck.pdf" download="Sponsorship Deck.pdf" target="_blank" rel="noopener noreferrer">
             <div className="relative z-10 text-left">
               <span className="text-[10px] font-black tracking-widest text-drift-orange uppercase block mb-1">OFFICIAL DOCUMENTATION</span>
               <span className="text-lg font-racing font-black italic text-white group-hover:text-drift-orange transition-colors">DOWNLOAD SPONSOR BROCHURE</span>
